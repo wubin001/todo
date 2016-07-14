@@ -16,10 +16,15 @@
 
 package com.nico.todo.util;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+
+import com.nico.todo.data.source.DataRepository;
+import com.nico.todo.data.source.local.LocalDataSource;
+import com.nico.todo.data.source.remote.RemoteDataSource;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -27,6 +32,13 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * This provides methods to help Activities load their UI.
  */
 public class ActivityUtils {
+
+    /**
+     * 消息枚举类型定义
+     */
+    public enum MsgMode{
+        BEGIN,SUCCESS,FAILD
+    }
 
     /**
      * The {@code fragment} is added to the container view with id {@code frameId}. The operation is
@@ -40,6 +52,13 @@ public class ActivityUtils {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.add(frameId, fragment);
         transaction.commit();
+    }
+
+
+    public static DataRepository provideRepository(@NonNull Context context) {
+        checkNotNull(context);
+        return DataRepository.getInstance(RemoteDataSource.getInstance(),
+                LocalDataSource.getInstance(context));
     }
 
 }

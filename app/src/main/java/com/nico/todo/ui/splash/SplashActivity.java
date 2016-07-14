@@ -5,15 +5,9 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.transition.AutoTransition;
-import android.transition.ChangeImageTransform;
-import android.transition.ChangeTransform;
 import android.transition.Scene;
-import android.transition.Transition;
 import android.transition.TransitionManager;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -47,7 +41,7 @@ public class SplashActivity extends Activity {
         }
 
         scene1 = new Scene(layout, layout.findViewById(R.id.contant));
-        View layout2 = getLayoutInflater().inflate(R.layout.scene_2,null);
+        View layout2 = getLayoutInflater().inflate(R.layout.scene_login_2,null);
         scene2 = new Scene(layout,layout2);
         Button btn_entry = (Button)layout2.findViewById(R.id.btn_begin);
         Button btn_begin = (Button)layout.findViewById(R.id.btn_begin);
