@@ -6,4 +6,6 @@ package com.nico.todo.base;
 public interface BasePresenter {
 
     void start();
+
+    void unregister();
 }

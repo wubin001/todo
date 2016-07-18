@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
+    useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
         applicationId "com.nico.todo"
@@ -24,4 +25,14 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile project(':library')
+//    //bmob-sms ：Bmob单独为短信服务提供的包
+//    compile 'cn.bmob.android:bmob-sms:1.0.1'
+//
+//    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
+//    compile 'cn.bmob.android:http-legacy:1.0'
+    //3.5.0：请务必查看下面注释[1]
+    compile 'cn.bmob.android:bmob-sdk:3.5.0'
+//
+//    //bmob-push：Bmob的推送包
+//    compile 'cn.bmob.android:bmob-push:0.8'
 }

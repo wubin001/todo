@@ -8,21 +8,53 @@ import java.util.List;
  */
 public interface DataSource {
 
-    interface LoadDatasCallback<T> {
+    //回调接口暂时用eventbus代替
+//    interface LoadDatasCallback<T> {
+//
+//        void onDatasLoaded(List<T> tasks);
+//
+//        void onDataNotAvailable();
+//    }
+//
+//    interface GetDataCallback<T> {
+//
+//        void onDataLoaded(T task);
+//
+//        void onDataNotAvailable();
+//    }
 
-        void onDatasLoaded(List<T> tasks);
 
-        void onDataNotAvailable();
+    interface LocalData{
+
     }
 
-    interface GetDataCallback<T> {
+    interface RemoteData{
+        /**
+         * 获取验证码
+         * @param phone
+         */
+        void getCode(String phone);
 
-        void onDataLoaded(T task);
-
-        void onDataNotAvailable();
+        /**
+         * 手机号码一键注册和登录
+         * @param phone
+         * @param code
+         */
+        void loginWithPhoneCode(String phone,String code);
     }
-    //注册
-    //登录
+
+    /**
+     * 获取验证码
+     * @param phone
+     */
+    void getCode(String phone);
+
+    /**
+     * 手机号码一键注册和登录
+     * @param phone
+     * @param code
+     */
+    void loginWithPhoneCode(String phone,String code);
     //更新
     //退出
     //密码修改

@@ -25,6 +25,9 @@ public class LoginActivity extends AppCompatActivity {
                     getFragmentManager(), loginFragment, R.id.contentFrame);
         }
 
+        //实例化M层对象
+        new LoginPresenter(ActivityUtils.provideRepository(getApplicationContext()),loginFragment);
+
     }
 
 

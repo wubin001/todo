@@ -40,8 +40,9 @@
         android:layout_below="@+id/edit_phone"
         />
 
-    <Button
-        android:layout_width="60dp"
+    <TextView
+        android:id="@+id/tv_recode"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:text="@string/get_code"
         android:textSize="12sp"

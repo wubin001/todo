@@ -12,18 +12,18 @@ public class DataRepository implements DataSource {
 
     private static DataRepository INSTANCE = null;
 
-    private final DataSource mRemoteDataSource;
+    private final DataSource.RemoteData mRemoteDataSource;
 
-    private final DataSource mLocalDataSource;
+    private final DataSource.LocalData mLocalDataSource;
 
-    private DataRepository(@NonNull DataSource tasksRemoteDataSource,
-                            @NonNull DataSource tasksLocalDataSource) {
+    private DataRepository(@NonNull DataSource.RemoteData tasksRemoteDataSource,
+                            @NonNull DataSource.LocalData tasksLocalDataSource) {
         this.mRemoteDataSource = checkNotNull(tasksRemoteDataSource);
         this.mLocalDataSource = checkNotNull(tasksLocalDataSource);
     }
 
-    public static DataRepository getInstance(DataSource tasksRemoteDataSource,
-                                             DataSource tasksLocalDataSource) {
+    public static DataRepository getInstance(DataSource.RemoteData tasksRemoteDataSource,
+                                             DataSource.LocalData tasksLocalDataSource) {
         if (INSTANCE == null) {
             INSTANCE = new DataRepository(tasksRemoteDataSource, tasksLocalDataSource);
         }
@@ -34,4 +34,13 @@ public class DataRepository implements DataSource {
         INSTANCE = null;
     }
 
+    @Override
+    public void getCode(String phone) {
+        mRemoteDataSource.getCode(phone);
+    }
+
+    @Override
+    public void loginWithPhoneCode(String phone, String code) {
+        mRemoteDataSource.loginWithPhoneCode(phone,code);
+    }
 }

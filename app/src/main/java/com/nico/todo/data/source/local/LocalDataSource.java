@@ -8,7 +8,7 @@ import com.nico.todo.data.source.DataSource;
 /**
  * Created by wubin on 2016/7/14.
  */
-public class LocalDataSource implements DataSource {
+public class LocalDataSource implements DataSource.LocalData {
 
     public static LocalDataSource INSTANCE;
 
@@ -24,5 +24,7 @@ public class LocalDataSource implements DataSource {
         return INSTANCE;
 
     }
+
+
 
 }
