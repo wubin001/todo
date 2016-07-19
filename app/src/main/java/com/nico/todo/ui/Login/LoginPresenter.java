@@ -24,7 +24,6 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     private final DataRepository dataRepository;
     private final LoginContract.View fragment;
-    private String mCode;
 
     public LoginPresenter(@NonNull DataRepository dataRepository,@NonNull LoginContract.View fragmentView) {
         this.dataRepository = checkNotNull(dataRepository,"DataRepository cannot be null");
@@ -47,7 +46,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Subscribe(threadMode = ThreadMode.POSTING)
     public void callBackWithGetCode(Integer smsId)
     {
-        mCode = String.valueOf(smsId);
+        Log.e("COde",String.valueOf(smsId)) ;
     }
 
     //订阅登录事件
@@ -57,7 +56,7 @@ public class LoginPresenter implements LoginContract.Presenter {
         //等待框消失
         fragment.dismisProgressDialog();
         //登录成功
-        fragment.callBackWithLoginState(ActivityUtils.MsgMode.SUCCESS,"");
+        fragment.callBackWithLoginState(ActivityUtils.MsgMode.SUCCESS);
     }
 
     @Subscribe(threadMode = ThreadMode.POSTING)
@@ -69,7 +68,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void getCode(@NonNull String phone) {
         //基础校验手机号码
-        Log.e("smile","获取验证码");
+        Log.e("smile","获取验证码"+phone);
         String msg = checkTel(phone);
         if(msg!=null&&msg.length()>1){
             fragment.showToast(msg);
@@ -84,7 +83,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     public void LoginWithPhoneCode(@NonNull String phone,@NonNull String code) {
         //等待框显示
         fragment.showProgressDialog();
-        dataRepository.loginWithPhoneCode("15267890666",mCode);
+        dataRepository.loginWithPhoneCode(phone,code);
     }
 
     private String checkTel(String phone){

@@ -11,10 +11,8 @@ public interface LoginContract {
 
     interface View extends BaseView<Presenter>{
 
-        //获取验证码状态返回
-        void callBackWithGetCode(ActivityUtils.MsgMode msgMode,String msg);
         //登录状态返回
-        void callBackWithLoginState(ActivityUtils.MsgMode msgMode,String msg);
+        void callBackWithLoginState(ActivityUtils.MsgMode msgMode);
 
         void showProgressDialog();
 
@@ -25,6 +23,7 @@ public interface LoginContract {
     }
 
     interface Presenter extends BasePresenter{
-
+        void getCode(String phone);
+        void LoginWithPhoneCode(String phone,String code);
     }
 }

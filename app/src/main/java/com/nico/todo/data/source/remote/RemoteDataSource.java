@@ -46,7 +46,7 @@ public class RemoteDataSource implements DataSource.RemoteData {
 
     @Override
     public void loginWithPhoneCode(String phone, String code) {
-        BmobUser.signOrLoginByMobilePhone(phone, code, new LogInListener<BmobUser>() {
+        BmobUser.loginBySMSCode(phone, code, new LogInListener<BmobUser>() {
 
             @Override
             public void done(BmobUser user, BmobException e) {
