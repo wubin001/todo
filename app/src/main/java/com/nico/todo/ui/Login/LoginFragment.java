@@ -66,7 +66,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View{
         mPresenter.unregister();
     }
 
-    protected void initData(LayoutInflater inflater){
+    protected void initData(View rootView, LayoutInflater inflater){
         Drawable drawable = imageView.getDrawable();
         if (drawable instanceof Animatable){
             ((Animatable) drawable).start();

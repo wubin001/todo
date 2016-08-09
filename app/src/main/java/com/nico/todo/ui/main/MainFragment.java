@@ -1,27 +1,33 @@
 package com.nico.todo.ui.main;
 
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import com.nico.todo.R;
+import com.nico.todo.ui.apater.ViewPagerAdapter;
 import com.nico.todo.ui.base.BaseFragment;
-import com.nico.todo.ui.login.LoginContract;
-import com.nico.todo.ui.login.LoginFragment;
-import com.nico.todo.util.ActivityUtils;
 
 /**
  * Created by wubin on 2016/7/27.
  */
-public class MainFragment extends BaseFragment implements LoginContract.View {
+public class MainFragment extends BaseFragment implements MainContract.View {
 
-    private LoginContract.Presenter presenter;
+    private MainContract.Presenter presenter;
+    private ViewPager viewPager;
 
     public static MainFragment newInstance(){
         return new MainFragment();
     }
 
     @Override
-    protected void initData(LayoutInflater inflater) {
+    protected void initData(View rootView,LayoutInflater inflater) {
+        viewPager = (ViewPager)rootView.findViewById(R.id.viewpager);
+    }
 
+    @Override
+    public void setViewPagerAdapter(ViewPagerAdapter adapter) {
+        viewPager.setAdapter(adapter);
     }
 
     @Override
@@ -40,27 +46,7 @@ public class MainFragment extends BaseFragment implements LoginContract.View {
     }
 
     @Override
-    public void callBackWithLoginState(ActivityUtils.MsgMode msgMode) {
-
-    }
-
-    @Override
-    public void showProgressDialog() {
-
-    }
-
-    @Override
-    public void dismisProgressDialog() {
-
-    }
-
-    @Override
-    public void showToast(String msg) {
-
-    }
-
-    @Override
-    public void setPresenter(LoginContract.Presenter presenter) {
+    public void setPresenter(MainContract.Presenter presenter) {
         this.presenter = presenter;
     }
 }

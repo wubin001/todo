@@ -1,13 +1,8 @@
 package com.nico.todo.ui.main;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import com.nico.todo.R;
 import com.nico.todo.ui.base.BaseActivity;
-import com.nico.todo.ui.login.LoginFragment;
-import com.nico.todo.ui.login.LoginPresenter;
 import com.nico.todo.util.ActivityUtils;
 
 /**
@@ -28,6 +23,6 @@ public class MainActivity extends BaseActivity {
         }
 
         //实例化M层对象
-        new LoginPresenter(ActivityUtils.provideRepository(getApplicationContext()),mainFragment);
+        new MainPresenter(ActivityUtils.provideRepository(getApplicationContext()),mainFragment);
     }
 }

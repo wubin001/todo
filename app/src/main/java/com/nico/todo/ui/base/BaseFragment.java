@@ -1,5 +1,6 @@
 package com.nico.todo.ui.base;
 
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,7 +17,7 @@ import butterknife.ButterKnife;
 /**
  * Created by wubin on 2016/7/27.
  */
-public abstract class BaseFragment extends Fragment{
+public abstract class BaseFragment extends Fragment {
 
 
     @Nullable
@@ -24,7 +25,7 @@ public abstract class BaseFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(getLayoutId(),null);
         ButterKnife.inject(this, root);
-        initData(inflater);
+        initData(root,inflater);
         return root;
     }
 
@@ -41,7 +42,7 @@ public abstract class BaseFragment extends Fragment{
         unRegistPresenter();
     }
 
-    protected abstract void initData(LayoutInflater inflater);
+    protected abstract void initData(View rootView, LayoutInflater inflater);
 
     protected abstract int getLayoutId();
 
