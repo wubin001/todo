@@ -4,7 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.nico.todo.ui.base.BaseFragment;
-import com.nico.todo.ui.mall.MallContract;
+
 
 /**
  * Created by wubin on 2016/8/8.
@@ -33,7 +33,7 @@ public class MineFragment extends BaseFragment implements MineContract.View{
     }
 
     @Override
-    public void setPresenter(MallContract.Presenter presenter) {
+    public void setPresenter(MineContract.Presenter presenter) {
 
     }
 }

@@ -1,5 +1,6 @@
 package com.nico.todo.ui.login;
 
+import android.content.Intent;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.CountDownTimer;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.nico.todo.R;
 import com.nico.todo.ui.base.BaseFragment;
+import com.nico.todo.ui.main.MainActivity;
 import com.nico.todo.util.ActivityUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -121,7 +123,9 @@ public class LoginFragment extends BaseFragment implements LoginContract.View{
 
     private void startActivity(){
         dismisProgressDialog();
-
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
+        getActivity().finish();
     }
 
 

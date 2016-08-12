@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 
 import com.nico.todo.data.source.DataSource;
 
+import cn.bmob.v3.BmobUser;
+
 /**
  * Created by wubin on 2016/7/14.
  */
@@ -25,6 +27,11 @@ public class LocalDataSource implements DataSource.LocalData {
 
     }
 
+    @Override
+    public void getCacheUser() {
+        BmobUser user = BmobUser.getCurrentUser();
+        if(user!=null){
 
-
+        }
+    }
 }

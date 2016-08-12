@@ -1,5 +1,6 @@
 package com.nico.todo.ui.login;
 
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -14,6 +15,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import cn.bmob.v3.BmobUser;
+import rx.Observable;
+import rx.Subscriber;
+import rx.functions.Action1;
+import rx.functions.Func1;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -35,7 +40,42 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void start() {
         EventBus.getDefault().register(this);
+        hello("1","2");
     }
+
+    public  void hello(String... names) {
+        Observable.from(names).subscribe(new Action1<String>() {
+
+            @Override
+            public void call(String s) {
+                System.out.println("Hello " + s + "!");
+            }
+
+        });
+        int id= 123;
+
+        Observable.just(id).map(new Func1<Integer, Drawable>() {
+            @Override
+            public Drawable call(Integer integer) {
+                return null;
+            }
+        });
+
+        Observable.create(new Observable.OnSubscribe<Drawable>() {
+            @Override
+            public void call(Subscriber<? super Drawable> subscriber) {
+                Drawable drawable =null;
+                subscriber.onNext(drawable);
+                subscriber.onCompleted();
+            }
+        }).subscribe(new Action1<Drawable>() {
+            @Override
+            public void call(Drawable drawable) {
+
+            }
+        });
+    }
+
 
     @Override
     public void unregister() {

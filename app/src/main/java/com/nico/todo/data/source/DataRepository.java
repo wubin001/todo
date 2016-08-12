@@ -43,4 +43,9 @@ public class DataRepository implements DataSource {
     public void loginWithPhoneCode(String phone, String code) {
         mRemoteDataSource.loginWithPhoneCode(phone,code);
     }
+
+    @Override
+    public void getCacheUser() {
+
+    }
 }

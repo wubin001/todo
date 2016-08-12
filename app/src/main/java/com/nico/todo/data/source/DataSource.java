@@ -25,7 +25,7 @@ public interface DataSource {
 
 
     interface LocalData{
-
+        void getCacheUser();
     }
 
     interface RemoteData{
@@ -42,6 +42,8 @@ public interface DataSource {
          */
         void loginWithPhoneCode(String phone,String code);
     }
+
+    void getCacheUser();
 
     /**
      * 获取验证码
