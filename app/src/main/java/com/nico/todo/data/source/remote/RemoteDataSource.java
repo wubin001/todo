@@ -17,17 +17,13 @@ import cn.bmob.v3.listener.QueryListener;
  */
 public class RemoteDataSource implements DataSource.RemoteData {
 
-    public static RemoteDataSource INSTANCE;
 
-    public RemoteDataSource(){
-
-    };
+    private static class SingletonHolder{
+        public static RemoteDataSource INSTANCE = new RemoteDataSource();
+    }
 
     public static RemoteDataSource getInstance(){
-        if(INSTANCE == null){
-            INSTANCE = new RemoteDataSource();
-        }
-        return INSTANCE;
+        return SingletonHolder.INSTANCE;
     }
 
     @Override
