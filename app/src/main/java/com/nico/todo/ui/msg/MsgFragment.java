@@ -3,6 +3,7 @@ package com.nico.todo.ui.msg;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.nico.todo.R;
 import com.nico.todo.ui.base.BaseFragment;
 
 /**
@@ -17,7 +18,7 @@ public class MsgFragment extends BaseFragment implements MsgContract.View{
 
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.fm_main;
     }
 
     @Override

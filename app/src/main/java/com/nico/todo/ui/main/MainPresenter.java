@@ -53,7 +53,7 @@ public class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void start() {
-        EventBus.getDefault().register(this);
+//        EventBus.getDefault().register(this);
         mainFragment.setViewPagerAdapter(getViewPagerAdapter());
     }
 

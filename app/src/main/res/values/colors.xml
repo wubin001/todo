@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="getcode_bg">#c5c4c0c0</color>
     <color name="getcode_text">#edf99603</color>
+    <color name="white">#96f9b9</color>
 </resources>

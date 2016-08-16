@@ -3,6 +3,7 @@ package com.nico.todo.ui.mine;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.nico.todo.R;
 import com.nico.todo.ui.base.BaseFragment;
 
 
@@ -19,7 +20,7 @@ public class MineFragment extends BaseFragment implements MineContract.View{
 
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.fm_main;
     }
 
     @Override

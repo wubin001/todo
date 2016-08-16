@@ -3,6 +3,7 @@ package com.nico.todo.ui.mall;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.nico.todo.R;
 import com.nico.todo.ui.base.BaseFragment;
 
 /**
@@ -23,7 +24,7 @@ public class MallFragment extends BaseFragment implements MallContract.View {
 
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.fm_main;
     }
 
     @Override
